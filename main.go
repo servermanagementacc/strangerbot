@@ -202,21 +202,22 @@ func retrieveOrCreateUser(chatID int64) (User, error) {
 			return u, err
 		}
 
-		telegram.SendMessage(chatID, `Welcome! Nice to meet you! I will try to match you with interesting people!
+		telegram.SendMessage(chatID, `Welcome! This bot was started in light of COVID-19 restrictions that meant less opportunities for interaction in university! Whether you're here just to know your cohort mates, find a study buddy, make new friends or have a listening ear, this is the chat bot for you. While ocnversations are anonymous, you're more than welcome to exchange contacts after a quick chat!
 
 		To get started enter:
 
 		/start
 
-		If you're bored of a conversation, type:
+		If you feel like ending the conversation, type:
 
 		/bye
 
 		If you want another chat partner, type /start again after typing /bye!
+		
+		Use the /report to report abuse; note that this users who abuse the platform will be banned permanently. Note that advertising is also not allowed!
+		Feel free to contact @aaldentnay if you need any assistance!
 
-		Have fun,
-
-		StrangerBot!`, emptyOpts)
+		Have fun!`, emptyOpts)
 	}
 
 	return retrieveUser(chatID)
