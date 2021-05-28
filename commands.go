@@ -18,12 +18,12 @@ func commandDisablePictures(u User, m telegrambot.Message) bool {
 
 	if u.AllowPictures {
 		db.Exec("UPDATE users SET allow_pictures = 0 WHERE id = ?", u.ID)
-		telegram.SendMessage(u.ChatID, "Strangers won't be able to send you photos anymore!", emptyOpts)
+		telegram.SendMessage(u.ChatID, "Users won't be able to send you photos anymore!", emptyOpts)
 		return true
 	}
 
 	db.Exec("UPDATE users SET allow_pictures = 1 WHERE id = ?", u.ID)
-	telegram.SendMessage(u.ChatID, "Strangers can now send you photos!", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Users can now send you photos!", emptyOpts)
 	return true
 }
 
@@ -47,7 +47,7 @@ func commandStart(u User, m telegrambot.Message) bool {
 
 	db.Exec("UPDATE users SET available = 1 WHERE chat_id = ?", u.ChatID)
 
-	telegram.SendMessage(u.ChatID, "Looking for a stranger to match you with... Hold on!", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on!", emptyOpts)
 	startJobs <- u.ChatID
 
 	return true
@@ -129,8 +129,8 @@ func commandMessage(u User, m telegrambot.Message) bool {
 	if len(m.Photo) > 0 {
 
 		if !partner.AllowPictures {
-			telegram.SendMessage(chatID, "Stranger tried to send you a photo, but you disabled this,  you can enable photos by using the /nopics command", emptyOpts)
-			telegram.SendMessage(u.ChatID, "Stranger disabled photos, and will not receive your photos", emptyOpts)
+			telegram.SendMessage(chatID, "User tried to send you a photo, but you disabled this,  you can enable photos by using the /nopics command", emptyOpts)
+			telegram.SendMessage(u.ChatID, "User disabled photos, and will not receive your photos", emptyOpts)
 			return true
 		}
 
@@ -142,30 +142,30 @@ func commandMessage(u User, m telegrambot.Message) bool {
 			}
 		}
 
-		telegram.SendMessage(chatID, "Stranger sends you a photo!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you a photo!", emptyOpts)
 		_, err = telegram.SendPhoto(chatID, toSend.FileID, emptyOpts)
 
 	} else if m.Sticker != (telegrambot.Sticker{}) {
-		telegram.SendMessage(chatID, "Stranger sends you a sticker!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you a sticker!", emptyOpts)
 		_, err = telegram.SendSticker(chatID, m.Sticker.FileID, emptyOpts)
 	} else if m.Location != (telegrambot.Location{}) {
-		telegram.SendMessage(chatID, "Stranger sends you a location!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you a location!", emptyOpts)
 		_, err = telegram.SendLocation(chatID,
 			m.Location.Latitude,
 			m.Location.Longitude,
 			emptyOpts,
 		)
 	} else if m.Document != (telegrambot.Document{}) {
-		telegram.SendMessage(chatID, "Stranger sends you a document!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you a document!", emptyOpts)
 		_, err = telegram.SendDocument(chatID, m.Document.FileID, emptyOpts)
 	} else if m.Audio != (telegrambot.Audio{}) {
-		telegram.SendMessage(chatID, "Stranger sends you an audio file!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you an audio file!", emptyOpts)
 		_, err = telegram.SendAudio(chatID, m.Audio.FileID, emptyOpts)
 	} else if m.Video != (telegrambot.Video{}) {
-		telegram.SendMessage(chatID, "Stranger sends you a video file!", emptyOpts)
+		telegram.SendMessage(chatID, "User sends you a video file!", emptyOpts)
 		_, err = telegram.SendVideo(chatID, m.Video.FileID, emptyOpts)
 	} else {
-		_, err = telegram.SendMessage(chatID, "Stranger: "+m.Text, emptyOpts)
+		_, err = telegram.SendMessage(chatID, "User: "+m.Text, emptyOpts)
 	}
 
 	if err != nil {
@@ -197,7 +197,7 @@ Use /nopics to disable receiving photos, and /nopics if you want to enable it ag
 
 Sending images and videos are a beta functionality, but appear to be working fine.
 
-If you have any suggestions or require help, please contact @MachielMolenaar on Twitter, or follow @MachielMolenaar on Twitter for updates. (http://twitter.com/MachielMolenaar)`, emptyOpts)
+If you require any help, feel free to contact @aaldentnay !`, emptyOpts)
 
 	return true
 }
