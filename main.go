@@ -202,7 +202,7 @@ func retrieveOrCreateUser(chatID int64) (User, error) {
 			return u, err
 		}
 
-		telegram.SendMessage(chatID, `Welcome! This bot was started in light of COVID-19 restrictions that meant less opportunities for interaction in university! Whether you're here just to know your cohort mates, find a study buddy, make new friends or have a listening ear, this is the chat bot for you. While conversations are anonymous, you're more than welcome to exchange contacts after a quick chat (do stay safe though)!
+		telegram.SendMessage(chatID, `Welcome! This bot was started in light of COVID-19 restrictions which meant less opportunities for interaction in university! Whether you're here just to know your cohort mates, find a study buddy, make new friends or have a listening ear, this is the chat bot for you. While conversations are anonymous, you're more than welcome to exchange contacts after a quick chat (do stay safe though)!
 
 		To get started enter:
 
