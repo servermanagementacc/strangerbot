@@ -47,7 +47,7 @@ func commandStart(u User, m telegrambot.Message) bool {
 
 	db.Exec("UPDATE users SET available = 1 WHERE chat_id = ?", u.ChatID)
 
-	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on!", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!)", emptyOpts)
 	startJobs <- u.ChatID
 
 	return true
