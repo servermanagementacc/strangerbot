@@ -195,10 +195,9 @@ Use /report to report a user, use it as follows:
 
 Use /nopics to disable receiving photos, and /nopics if you want to enable it again.
 
+HEAD OVER to @unichatbotchannel for rules, updates, announcements or info on how you can support the bot!
+
 Sending images and videos are a beta functionality, but appear to be working fine.
-
-Head over to @unichatbotchannel for rules, announcements, etc. first!
-
 
 If you require any help, feel free to contact @aaldentnay !`, emptyOpts)
 
