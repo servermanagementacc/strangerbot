@@ -197,6 +197,9 @@ Use /nopics to disable receiving photos, and /nopics if you want to enable it ag
 
 Sending images and videos are a beta functionality, but appear to be working fine.
 
+Head over to @unichatbotchannel for rules, announcements, etc. first!
+
+
 If you require any help, feel free to contact @aaldentnay !`, emptyOpts)
 
 	return true
