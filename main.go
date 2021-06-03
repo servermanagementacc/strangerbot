@@ -215,6 +215,9 @@ func retrieveOrCreateUser(chatID int64) (User, error) {
 		If you want another chat partner, type /start again after typing /bye!
 		
 		Use the /report to report abuse; note that this users who abuse the platform will be banned permanently. Note that advertising is also not allowed!
+		
+		HEAD TO @unichatbotchannel for rules, announcements, etc. first before proceeding! :)
+		
 		Feel free to contact @aaldentnay if you need any assistance!
 
 		Have fun!`, emptyOpts)
