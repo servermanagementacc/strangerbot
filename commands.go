@@ -47,7 +47,7 @@ func commandStart(u User, m telegrambot.Message) bool {
 
 	db.Exec("UPDATE users SET available = 1 WHERE chat_id = ?", u.ChatID)
 
-	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!) **Anything illegal will be handed over to the police. Your User ID is anonymous only until you break the rules. A police report for harassment/defamation will be filed if you pass off another user's contact as if it is yours.** To report a user, enter **/report (a reason; don't leave blank)** into the chat. If chat with a user you want to report has already ended, then **do not** start a new chat—immediately contact the admin @aaldentnay . **Also, note to guys—pls stop being thirsty on here because that scares new users away. Those reported will be permanently banned.** Misuse of /report , if not accidental, can also result in ban.", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!) **NOTE: Anything illegal will be handed over to the police. Your User ID is anonymous only until you break the rules. A police report for harassment/defamation will be filed if you pass off another user's contact as if it is yours.** To report a user, enter **/report (a reason; don't leave blank)** into the chat. If chat with a user you want to report has already ended, then **do not** start a new chat—immediately contact the admin @aaldentnay . **Also, note to guys—pls stop being thirsty on here because that scares new users away. Those reported will be permanently banned.** Misuse of /report , if not accidental, can also result in ban.", emptyOpts)
 	startJobs <- u.ChatID
 
 	return true
