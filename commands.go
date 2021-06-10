@@ -47,7 +47,7 @@ func commandStart(u User, m telegrambot.Message) bool {
 
 	db.Exec("UPDATE users SET available = 1 WHERE chat_id = ?", u.ChatID)
 
-	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!)", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!) **Anything illegal will be handed over to the police. Your User ID is anonymous only until you break the rules. A police report for harassment/defamation will be filed if you pass off another user's contact as if it is yours.** To report a user, enter **/report (compulsory reason)** into the chat. If chat with a user you want to report has already ended, then **do not** start a new chat—immediately contact the admin @aaldentnay", emptyOpts)
 	startJobs <- u.ChatID
 
 	return true
