@@ -47,7 +47,7 @@ func commandStart(u User, m telegrambot.Message) bool {
 
 	db.Exec("UPDATE users SET available = 1 WHERE chat_id = ?", u.ChatID)
 
-	telegram.SendMessage(u.ChatID, "Looking for another student to match you with... Hold on! (This may take a while! Keep your notifications on!) **NOTE: If you send anything illegal here, your data will be handed over to the police. We can retrieve your User ID. A police report for harassment/defamation will be filed if you pass off another user's contact as if it is yours.** To report a user, enter **/report (followed by a reason; don't leave blank)** into the chat. If chat with a user you want to report has already ended, then **do not** start a new chat—immediately contact the admin @aaldentnay . THIS BOT IS ONLY FOR THOSE IN THE UNIVERSITY; ANYONE ELSE WILL BE PERMANENTLY BANNED ON ALL BOTS. REPORT ALL INTRUDERS. IF YOU ARE NOT FROM THE UNI, YOU CAN HEAD TO: ⭐ NATION-WIDE BOT: @SGchatterbot (which is for all SG ppl) ⭐  The uni bot is meant ONLY for those in the uni (or incoming 2021) to interact; NSFs and all other outsiders should NOT be on here, and be on the nation-wide bot instead. Intruders are a nuisance thanks. A ban on the uni bot is an automatic perm ban on @SGchatterbot too.", emptyOpts)
+	telegram.SendMessage(u.ChatID, "Looking for another cool A5 bestie to match you with... Hold on!", emptyOpts)
 	startJobs <- u.ChatID
 
 	return true
